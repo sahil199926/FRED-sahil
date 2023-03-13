@@ -1,26 +1,14 @@
 import React from "react";
 import {
-  Box,
   IconButton,
-  InputAdornment,
   MenuItem,
   TextField,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { makeStyles } from "@mui/styles";
 import { dropDown1, dropDown2, dropDown3 } from "../../assets/data/project";
 import "./btn.css";
 
-const useStyles = makeStyles((theme) => ({
-  inputFieldStyle: {
-    "& .MuiOutlinedInput-root": {
-      border: "1px solid #0065b1",
-    },
-  },
-}));
-
 export default function Filters() {
-  const classes = useStyles();
   return (
     <div
       style={{

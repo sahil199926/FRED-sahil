@@ -1,12 +1,12 @@
 import React from "react";
 import "./nav.css";
-import profile from "../assets/img/bg-image.png";
+import profile from "../../../assets/img/bg-image.png";
 import { Box, IconButton, Typography } from "@mui/material";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
-import { useLocation, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
-const Nav = () => {
-  const location = useLocation();
+const Topbar = () => {
+  // const location = useLocation();
   const navigate = useNavigate();
   return (
     <div className="nav-contaainer">
@@ -18,7 +18,7 @@ const Nav = () => {
         }}
       >
         <div style={{ flex: 1, marginLeft: "1rem", cursor: "pointer" }}>
-          {location.pathname === "/firstpage" && (
+          {/* {location.pathname === "/firstpage" && (
             <Box
               style={{
                 color: "white",
@@ -37,7 +37,7 @@ const Nav = () => {
               />
               Main Page
             </Box>
-          )}
+          )} */}
         </div>
         <h2
           style={{
@@ -74,4 +74,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Topbar;
