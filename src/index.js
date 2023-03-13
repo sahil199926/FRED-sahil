@@ -30,6 +30,7 @@ ChartJS.register(
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    hello
   </React.StrictMode>,
   document.getElementById("root")
 );
