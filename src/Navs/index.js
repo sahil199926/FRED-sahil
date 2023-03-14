@@ -5,7 +5,9 @@ import {
   Route,
   Link,
   Navigate,
-  Outlet
+  Outlet,
+  useParams,
+  useLocation
 } from "react-router-dom";
 import Footer from "../components/Footer";
 import Home from "../Page/Home";
@@ -13,10 +15,16 @@ import Topbar from '../components/common/Topbar'
 import FirstPage from "../components/FirstPage/FirstPage";
 function Navs() {
   const Hoc=()=>{
+    const location=useLocation();
+    console.log(location)
     return(
       <>
       <Topbar/>
-      <Outlet/>
+      <div
+      style={{
+        padding:location.pathname==='/home'||location.pathname==='/'?'0px':'10px'
+      }}
+      ><Outlet/></div>
       <Footer />
       </>
     )

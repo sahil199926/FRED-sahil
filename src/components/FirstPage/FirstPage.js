@@ -6,7 +6,7 @@ import {
   BUDGET_CHART_OPTION,
 } from "../../assets/data/project";
 import Filters from "../common/Filters";
-
+import PriseShowCard from "../common/PriseShowCard";
 export default function FirstPage() {
   return (
     <div>
@@ -27,9 +27,13 @@ export default function FirstPage() {
       <Grid container spacing={1}>
         <Grid container item xs={12} lg={2}>
           <Grid item xs={4} lg={12}>
-            <h3>Fatalities</h3>
-            <div>0</div>
-            <div>One TCO 2022 Target</div>
+            <PriseShowCard
+            heading="Fatalities"
+            value="0"
+            currency="$"
+            subHeading="One TCO 2022 Target"
+
+            />
           </Grid>
           <Grid item xs={4} lg={12}>
             <h3>Fatalities</h3>
