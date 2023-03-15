@@ -7,6 +7,7 @@ import {
   WORK_CHART_DATA,
   WORK_CHART_OPTIONS,
 } from "../assets/data/project";
+import BarChart from "../components/common/BarChart";
 import "./home.css";
 const Home = () => {
   return (
@@ -98,7 +99,9 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="col-12">
-                  <div className="tile chart-tile budget-chart">
+
+                <BarChart bgColor="#fff" />
+                  {/* <div className="tile chart-tile budget-chart">
                     <span className="title-subtile">
                       Annual Outlook vs Budget
                     </span>
@@ -106,7 +109,7 @@ const Home = () => {
                       options={BUDGET_CHART_OPTION}
                       data={BUDGET_CHART_DATA}
                     />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
