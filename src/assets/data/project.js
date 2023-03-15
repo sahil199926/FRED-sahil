@@ -169,7 +169,8 @@ export const BUDGET_CHART_DATA = {
     },
   ],
 };
-export const BUDGET_CHART_OPTION = {
+export const BUDGET_CHART_OPTION = (bgColor)=>{
+  return{
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
@@ -181,7 +182,7 @@ export const BUDGET_CHART_OPTION = {
       align: "end",
       clamp: false,
       display: true,
-      color: "white",
+      color: bgColor,
       font: { weight: "bold", size: 12 },
       formatter: (value) => value.toFixed(2) + "%",
     },
@@ -192,7 +193,7 @@ export const BUDGET_CHART_OPTION = {
       ticks: {
         autoSkip: false,
         maxRotation: 0,
-        color: "white",
+        color: bgColor,
         font: { weight: "bold" },
         callback: function (v) {
           const charWidth = 10;
@@ -214,6 +215,7 @@ export const BUDGET_CHART_OPTION = {
     },
   },
 };
+}
 
 export const dropDown1 = [
   {
