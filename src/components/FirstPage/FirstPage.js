@@ -5,6 +5,7 @@ import {
   BUDGET_CHART_DATA,
   BUDGET_CHART_OPTION,
 } from "../../assets/data/project";
+import graph from '../../assets/img/graph.png'
 import BarCard from "../common/BarCard";
 import BarChart from "../common/BarChart";
 import Filters from "../common/Filters";
@@ -29,7 +30,15 @@ export default function FirstPage() {
         <Grid container item xs={12} lg={2} spacing={1}>
           {[0, 1, 2].map((data) => {
             return (
-              <Grid item xs={4} lg={12} key={data}>
+              <Grid
+                style={{
+                  display: "flex",
+                }}
+                item
+                xs={4}
+                lg={12}
+                key={data}
+              >
                 <PriseShowCard
                   heading="Fatalities"
                   value="0"
@@ -41,10 +50,15 @@ export default function FirstPage() {
           })}
         </Grid>
         <Grid container item xs={12} lg={5} spacing={1}>
-          <Grid container item lg={12}>
+          <Grid  columnSpacing={1} container item lg={12}>
             {[0, 1].map((data) => {
               return (
-                <Grid item xs={6} lg={6}>
+                <Grid
+                style={{
+                  display: "flex",
+                }}
+               
+                item xs={6} lg={6}>
                   <BarCard heading="budget" currency="$" value="200M" />
                 </Grid>
               );
@@ -73,13 +87,16 @@ export default function FirstPage() {
                   value="10K"
                   currency=""
                   subHeading=""
+                
                 />
               </Grid>
             );
           })}
         </Grid>
         <Grid item xs={12} lg={3}>
-          <GraphCard />
+          <GraphCard   graph={graph}
+          heading='Man Hours'
+          />
         </Grid>
       </Grid>
 

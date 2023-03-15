@@ -1,14 +1,31 @@
-import React from 'react'
+import React from "react";
 
-const GraphCard = () => {
+const GraphCard = ({ graph, heading }) => {
   return (
-    <div style={{backgroundColor:"#fff", margin:"5px"}} >
-      <div>
-        Man Hour
+    <div
+      style={{
+        backgroundColor: "#fff",
+        margin: "5px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{ fontSize: "14px", padding: "10px 0px", textAlign: "center" }}
+      >
+        <b>{heading}</b>
       </div>
-      <img src="https://doc.qt.io/qtforpython/_images/lineandbar.png" alt="" height="250" width="auto"/>
+      <img
+        src={graph}
+        alt=""
+        style={{
+          width: "-webkit-fill-available",
+          maxWidth: "500px",
+        }}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default GraphCard
+export default GraphCard;

@@ -11,7 +11,7 @@ const BarCard = (props) => {
       return (
         <div style={{
           backgroundColor:"#fff", 
-          width:"254px",
+          width:"100%",
           height:"86px",
           textAlign:"center",
           borderRadius:"8px",
