@@ -1,6 +1,6 @@
 import React from "react";
 
-const GraphCard = ({ graph, heading }) => {
+const GraphCard = ({ graph, heading,height }) => {
   return (
     <div
       style={{
@@ -11,11 +11,11 @@ const GraphCard = ({ graph, heading }) => {
         alignItems: "center",
       }}
     >
-      <div
+      {heading&&<div
         style={{ fontSize: "14px", padding: "10px 0px", textAlign: "center" }}
       >
         <b>{heading}</b>
-      </div>
+      </div>}
       <img
         src={graph}
         alt=""
@@ -23,6 +23,7 @@ const GraphCard = ({ graph, heading }) => {
           width: "-webkit-fill-available",
           maxWidth: "500px",
         }}
+        height={height}
       />
     </div>
   );
