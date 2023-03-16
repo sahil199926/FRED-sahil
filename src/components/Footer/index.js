@@ -11,6 +11,7 @@ export default function Footer() {
       style={{
         backgroundColor: "#0065b1",
         height: "45px",
+        position: "absolute",
         // position: "sticky",
         // position: location.pathname === "/home" ? "" : "absolute",
         bottom: "0px",
