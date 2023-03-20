@@ -1,0 +1,35 @@
+
+.table-2{
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: 8px;
+    flex-direction: column;
+}
+
+.head-tr{
+    border-bottom: 2px solid #2B88D8;
+}
+
+.head-tr td{
+    border-right: 1px solid #2B88D8;
+}
+.head-tr td:last-child{
+    border: none;
+}
+
+.body-tr:nth-child(even){
+    background-color: #ECECEC;
+}
+
+.heading-2{
+    font-size: 12px;
+    color: black;
+    margin-top: 10px;
+    text-align: center;
+}
+
+table{
+    margin: 10px 4px;
+}
