@@ -127,7 +127,8 @@ function Sidebar({ window, children }) {
         sx={{
           flexGrow: 1,
           p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { xs:"100%", sm: `calc(100% - ${drawerWidth}px)` },
+          padding:{xs:"0px",sm:"24px"}
         }}
       >
         <Toolbar />

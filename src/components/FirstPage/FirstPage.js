@@ -1,9 +1,11 @@
 import { Box, Grid } from "@mui/material";
 import React from "react";
-import { Bar } from "react-chartjs-2";
+// import { Bar } from "react-chartjs-2";
 import {
-  BUDGET_CHART_DATA,
-  BUDGET_CHART_OPTION,
+  // BUDGET_CHART_DATA,
+  // BUDGET_CHART_OPTION,
+  page1Data,
+  page1Key,
 } from "../../assets/data/project";
 import graph from '../../assets/img/graph.png'
 import BarCard from "../common/BarCard";
@@ -22,9 +24,9 @@ export default function FirstPage() {
 
       {/* Edit by gyan */}
       <div className="upperbar" style={{}}>
-        <Box sx={{ width: { xs: "100%", lg: "16.68%" } }}>Safety</Box>
-        <Box sx={{ width: { xs: "100%", lg: "58.34%" } }}>Budget</Box>
-        <Box sx={{ width: { xs: "100%", lg: "16%" } }}>Progress</Box>
+        <Box sx={{ width: { xs: "100%", sm: "16.68%" } }}>Safety</Box>
+        <Box sx={{ width: { xs: "100%", sm: "58.34%" } }}>Budget</Box>
+        <Box sx={{ width: { xs: "100%", sm: "16%" } }}>Progress</Box>
       </div>
       <Grid container spacing={1}>
         <Grid container item xs={12} lg={2} spacing={1}>
@@ -103,7 +105,7 @@ export default function FirstPage() {
       {/* Table Start */}
 
       <div className="my-2">
-        <CommonTable />
+        <CommonTable tableKey={page1Key} tableData={page1Data} />
       </div>
 
       {/* Table End */}
