@@ -21,9 +21,12 @@
 .slideNav{
   margin: 5px;
   padding: 8px;
-  border-radius: 8px
+  border-radius: 8px;
+  white-space: nowrap;
 }
-
+.scroll::-webkit-scrollbar {
+  display: none;
+}
 .actualProgress{
   display: flex;
     flex-direction: column;
@@ -31,7 +34,7 @@
     align-items: center;
     height: 100px;
     width: 130px;
-    width: 101px;
+    margin: 5px;
     border-radius: 8px;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), rgb(76, 175, 80);
 }

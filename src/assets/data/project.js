@@ -236,3 +236,166 @@ export const dropDown3 = [
     label: "PHASE",
   },
 ];
+
+export const page1Key = [
+  { lable: "Project Number", key: "number" },
+  { lable: "Project Title", key: "title" },
+  { lable: "Project Engineer", key: "engineer" },
+  { lable: "Project Category", key: "category" },
+  { lable: "Current Project Status", key: "status" },
+  { lable: "Action", key: "action" },
+];
+
+export const page1Data = [
+  {
+    number: "CP-21-3038",
+    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
+    engineer: "Kumiskaliyev A  Borissov S",
+    category: "FMPG",
+    status: "Active",
+    action: "View",
+  },
+  {
+    number: "CP-21-3038",
+    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
+    engineer: "Kumiskaliyev A  Borissov S",
+    category: "FMPG",
+    status: "Active",
+    action: "View",
+  },
+  {
+    number: "CP-21-3038",
+    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
+    engineer: "Kumiskaliyev A  Borissov S",
+    category: "FMPG",
+    status: "Active",
+    action: "View",
+  },
+  {
+    number: "CP-21-3038",
+    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
+    engineer: "Kumiskaliyev A  Borissov S",
+    category: "FMPG",
+    status: "Active",
+    action: "View",
+  },
+  {
+    number: "CP-21-3038",
+    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
+    engineer: "Kumiskaliyev A  Borissov S",
+    category: "FMPG",
+    status: "Active",
+    action: "View",
+  },
+  {
+    number: "CP-21-3038",
+    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
+    engineer: "Kumiskaliyev A  Borissov S",
+    category: "FMPG",
+    status: "Active",
+    action: "View",
+  },
+  {
+    number: "CP-21-3038",
+    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
+    engineer: "Kumiskaliyev A  Borissov S",
+    category: "FMPG",
+    status: "Cancelled",
+    action: "View",
+  },
+  {
+    number: "CP-21-3038",
+    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
+    engineer: "Kumiskaliyev A  Borissov S",
+    category: "FMPG",
+    status: "Active",
+    action: "View",
+  },
+  {
+    number: "CP-21-3038",
+    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
+    engineer: "Kumiskaliyev A  Borissov S",
+    category: "FMPG",
+    status: "Active",
+    action: "View",
+  },
+  //   "View",
+];
+
+export const page2Key = [
+  { lable: "Metering Station", key: "metering" },
+  { lable: "Automation Shut Down", key: "automation" },
+  { lable: "Site Readliness", key: "readliness" },
+  { lable: "Material for Shut Down", key: "material" },
+];
+
+export const page2Data = [
+  {
+    metering: "MS54",
+    automation: "active",
+    readliness: "cancelled",
+    material: "on hold",
+  },
+  {
+    metering: "MS54",
+    automation: "active",
+    readliness: "cancelled",
+    material: "on hold",
+  },
+  {
+    metering: "MS54",
+    automation: "cancelled",
+    readliness: "active",
+    material: "on hold",
+  },
+  {
+    metering: "MS54",
+    automation: "active",
+    readliness: "cancelled",
+    material: "on hold",
+  },
+  {
+    metering: "MS54",
+    automation: "active",
+    readliness: "active",
+    material: "on hold",
+  },
+  {
+    metering: "MS54",
+    automation: "active",
+    readliness: "cancelled",
+    material: "active",
+  },
+];
+
+
+export const page2MiddleKey = [
+  { lable: "Metering Station", key: "metering" },
+  { lable: "Status", key: "status" },
+];
+export const page2MiddleData = [
+  {
+    metering: "MS54",
+    status: "active",
+  },
+  {
+    metering: "MS54",
+    status: "active",
+  },
+  {
+    metering: "MS54",
+    automation: "cancelled",
+  },
+  {
+    metering: "MS54",
+    status: "active",
+  },
+  {
+    metering: "MS54",
+    status: "active",
+  },
+  {
+    metering: "MS54",
+    status: "on hold",
+  },
+];
