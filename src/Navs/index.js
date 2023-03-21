@@ -14,7 +14,16 @@ import Home from "../Page/Home";
 import Topbar from "../components/common/Topbar";
 import FirstPage from "../components/FirstPage/FirstPage";
 import Secondpage from "../components/SecondPage";
+import ThirdPage from "../components/ThirdPage";
+import FourthPage from "../components/FourthPage";
+import FifthPage from "../components/FifthPage";
+import SixthPage from "../components/SixthPage";
+import SeventhPage from "../components/SeventhPage";
+import EighthPage from "../components/EighthPage";
+import NinthPage from "../components/NinthPage";
+import TenthPage from "../components/TenthPage";
 import Sidebar from "../components/Sidebar";
+
 function Navs() {
   const Hoc = () => {
     const location = useLocation();
@@ -52,6 +61,14 @@ function Navs() {
           <Route path="*" element={<Navigate to="/home" />} />
           <Route element={<SidebarHoc />}>
             <Route path="/secondpage" exact element={<Secondpage />} />
+            <Route path='/thirdpage' exact element={<ThirdPage/>} />
+            <Route path='/fourthpage' exact element={<FourthPage/>} />
+            <Route path='/fifthpage' exact element={<FifthPage/>} />
+            <Route path='/sixthpage' exact element={<SixthPage/>} />
+            <Route path='/seventhpage' exact element={<SeventhPage/>} />
+            <Route path='/eighthpage' exact element={<EighthPage/>} />
+            <Route path='/ninthpage' exact element={<NinthPage/>} />
+            <Route path='/tenthpage' exact element={<TenthPage/>} />
           </Route>
         </Route>
       </Routes>

@@ -1,0 +1,40 @@
+.flex{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px;
+    font-size:12px;
+  }
+
+.slidebtn{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 8px;
+  margin: 5px;
+  background: linear-gradient(0deg, rgba(0, 102, 178, 0.08), rgba(0, 102, 178, 0.08)), rgb(255, 255, 255);
+}
+
+.slideNav{
+  margin: 5px;
+  padding: 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+.actualProgress{
+  display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    width: 130px;
+    margin: 5px;
+    border-radius: 8px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), rgb(76, 175, 80);
+}

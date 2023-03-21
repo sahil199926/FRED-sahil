@@ -6,85 +6,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-const tableHeadData = [
-  "Project Number",
-  "Project Title",
-  "Project Engineer",
-  "Project Category",
-  "Current Project Status",
-  "Action",
-];
 
-const tableBodyData = [
-  {
-    number: "CP-21-3038",
-    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
-    engineer: "Kumiskaliyev A  Borissov S",
-    category: "FMPG",
-    status: "Active",
-  },
-  {
-    number: "CP-21-3038",
-    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
-    engineer: "Kumiskaliyev A  Borissov S",
-    category: "FMPG",
-    status: "Active",
-  },
-  {
-    number: "CP-21-3038",
-    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
-    engineer: "Kumiskaliyev A  Borissov S",
-    category: "FMPG",
-    status: "Active",
-  },
-  {
-    number: "CP-21-3038",
-    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
-    engineer: "Kumiskaliyev A  Borissov S",
-    category: "FMPG",
-    status: "Active",
-  },
-  {
-    number: "CP-21-3038",
-    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
-    engineer: "Kumiskaliyev A  Borissov S",
-    category: "FMPG",
-    status: "Active",
-  },
-  {
-    number: "CP-21-3038",
-    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
-    engineer: "Kumiskaliyev A  Borissov S",
-    category: "FMPG",
-    status: "Active",
-  },
-  {
-    number: "CP-21-3038",
-    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
-    engineer: "Kumiskaliyev A  Borissov S",
-    category: "FMPG",
-    status: "Cancelled",
-  },
-  {
-    number: "CP-21-3038",
-    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
-    engineer: "Kumiskaliyev A  Borissov S",
-    category: "FMPG",
-    status: "Active",
-  },
-  {
-    number: "CP-21-3038",
-    title: "RV OLD POTABLE WATERLINE REPAIR WORKS",
-    engineer: "Kumiskaliyev A  Borissov S",
-    category: "FMPG",
-    status: "Active",
-  },
-  //   "View",
-];
 
-const CommonTable = () => {
+const CommonTable = ({tableKey,tableData}) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -95,42 +21,51 @@ const CommonTable = () => {
           }}
         >
           <TableRow sx={{ padding: "6px" }}>
-            {tableHeadData.map((data) => {
+            {tableKey.map((column) => {
               return (
-                <TableCell sx={{ padding: "6px" }} key={data}>
-                  {data}
+                <TableCell sx={{ padding: "6px" }} key={column}>
+                  {column.lable}
                 </TableCell>
               );
             })}
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableBodyData.map((data, idx) => {
+          {tableData.map((data, idx) => {
             return (
               <TableRow
                 key={idx}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell sx={{ padding: "6px" }}>{data.number}</TableCell>
-                <TableCell sx={{ padding: "6px" }}>{data.title}</TableCell>
-                <TableCell sx={{ padding: "6px" }}>{data.engineer}</TableCell>
-                <TableCell sx={{ padding: "6px" }}>{data.category}</TableCell>
-                <TableCell
-                  sx={{
-                    padding: "6px",
-                    color:
-                      data.status.toLowerCase() === "active"
+                {tableKey.map((column) => {
+                  return column.key === "status" ? (
+                    <TableCell
+                      sx={{
+                        padding: "6px",
+                        color:
+                        data[column.key].toLowerCase() === "active"
                         ? "#3B873E"
-                        : data.status.toLowerCase() === "cancelled"
+                        : data[column.key].toLowerCase() === "cancelled"
                         ? "#F44336"
-                        : "black",
-                  }}
-                >
-                  {data.status}
-                </TableCell>
-                <TableCell sx={{ padding: "6px" }}>
-                  <Link>View</Link>
-                </TableCell>
+                        : data[column.key].toLowerCase() === "on hold"
+                        ? "#26C6DA"
+                        : data[column.key].toLowerCase() === "execution"
+                        ? "#FFEE58"
+                        : "#8BC34A",
+                      }}
+                    >
+                      {data[column.key]}
+                    </TableCell>
+                  ):column.key === "action" ? (
+                    <TableCell sx={{ padding: "6px",color:"rgb(0, 101, 177)" }}>
+                      {data[column.key]}
+                    </TableCell>
+                  ) :(
+                    <TableCell sx={{ padding: "6px" }}>
+                      {data[column.key]}
+                    </TableCell>
+                  ) 
+                })}
               </TableRow>
             );
           })}
