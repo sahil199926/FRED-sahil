@@ -14,7 +14,7 @@ const array = [
   {heading:"",image:""}
 ]
 
-function ThirdPage() {
+function CostBaselines() {
   return (
     <>
       <HeadingWithPara heading="HP/LP Project — Cost" 
@@ -41,4 +41,4 @@ function ThirdPage() {
   );
 }
 
-export default ThirdPage;
+export default React.memo(CostBaselines);

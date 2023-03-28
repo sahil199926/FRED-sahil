@@ -15,12 +15,9 @@ import {
   PROJECT,
 } from "../../assets/data/project";
 
-function SecondPage() {
-  // console.log(13,page2MiddleData);
+function ProjectOverview() {
   return (
     <>
-      <div>SecondPage</div>
-
       <Box sx={{}}>
         <Box sx={{ backgroundColor: "white", margin: "5px" }}>
           <Box sx={{ fontSize: "14px", textAlign: "center", padding: "8px" }}>
@@ -166,4 +163,4 @@ function SecondPage() {
   );
 }
 
-export default SecondPage;
+export default ProjectOverview;

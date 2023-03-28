@@ -1,5 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
+import { useNavigate } from "react-router-dom";
 import {
   BUDGET_CHART_DATA,
   BUDGET_CHART_OPTION,
@@ -10,6 +11,11 @@ import {
 import BarChart from "../components/common/BarChart";
 import "./home.css";
 const Home = () => {
+  const navigate=useNavigate()
+  const redirect = (path) => {
+    navigate(path)
+
+  }
   return (
     <div className="home-container">
       <div className="row">
@@ -115,7 +121,9 @@ const Home = () => {
             </div>
           </div>
           <div className="btn-block">
-            <button className="project-button">
+            <button 
+            onClick={()=>redirect('/overview')}
+            className="project-button">
               Projects Insights <i className="bi bi-arrow-right"></i>
             </button>
             <button className="project-button">

@@ -2,7 +2,6 @@ import React from "react";
 import './index.css'
 
 const Page2Table = ({ tableKey, tableData, heading }) => {
-  // console.log(tableKey,tableData)
   return (
     <div className="table-2" >
         <div className="heading-2">{heading}</div>
