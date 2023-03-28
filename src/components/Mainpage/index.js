@@ -19,7 +19,11 @@ import "./index.css";
 
 export default function Mainpage() {
   return (
-    <div>
+    <div 
+    style={{
+      marginTop:'60px'
+    }}
+    >
       <Filters />
 
       {/* Edit by gyan */}

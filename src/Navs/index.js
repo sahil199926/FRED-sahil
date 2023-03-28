@@ -30,7 +30,7 @@ function Navs() {
     return (
       <>
        {(location.pathname === "/home" ||
-          location.pathname === "/mainpage") && <Topbar location={location.pathname} />}
+          location.pathname === "/mainpage") && <Topbar location={} />}
         
         <div
           style={{
@@ -69,7 +69,7 @@ function Navs() {
               exact
               element={<CostBaselines />}
             />
-
+        
           </Route>
         </Route>
       </Routes>
