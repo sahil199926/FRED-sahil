@@ -17,7 +17,7 @@ import CommonTable from "../common/Table";
 
 import "./index.css";
 
-export default function FirstPage() {
+export default function Mainpage() {
   return (
     <div>
       <Filters />

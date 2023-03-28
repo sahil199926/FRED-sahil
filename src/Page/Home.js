@@ -126,7 +126,9 @@ const Home = () => {
             className="project-button">
               Projects Insights <i className="bi bi-arrow-right"></i>
             </button>
-            <button className="project-button">
+            <button
+            onClick={()=>redirect('/mainpage')}
+            className="project-button">
               Start A project <i className="bi bi-plus"></i>
             </button>
           </div>

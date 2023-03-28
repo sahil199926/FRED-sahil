@@ -16,12 +16,14 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
+import { Avatar, Button } from "@mui/material";
 import { option } from "./SidebarOptions";
 import Footer from "../Footer";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import CommonTopbar from "../common/CommonTopbar";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 const drawerWidth = 240;
 
 function Sidebar({ window, children }) {
@@ -61,16 +63,13 @@ function Sidebar({ window, children }) {
   }, [location]);
 
   const drawer = (
-    <div
-    >
+    <div>
       <Toolbar />
       <Divider />
-      <List 
-      sx={{
-
+      <List
+        sx={{
           padding: "5px !important",
-      
-      }}
+        }}
       >
         {itsAChild && (
           <ListItem
@@ -103,9 +102,10 @@ function Sidebar({ window, children }) {
           <ListItem
             sx={{
               cursor: "pointer",
-              backgroundColor: location.pathname === option.path ? `#0066b229` : "white",
+              backgroundColor:
+                location.pathname === option.path ? `#0066b229` : "white",
 
-                borderRadius: location.pathname === option.path ? "8px" : "0px",
+              borderRadius: location.pathname === option.path ? "8px" : "0px",
             }}
             onClick={() => redirect(option)}
             key={option.name}
@@ -140,7 +140,8 @@ function Sidebar({ window, children }) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed">
+      <CommonTopbar handleDrawerToggle={handleDrawerToggle}/>
+      {/* <AppBar position="fixed">
         <Toolbar>
           <IconButton
             color="inherit"
@@ -151,12 +152,43 @@ function Sidebar({ window, children }) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" },alignItems:'center',fontWeight:'bold' }}>
+            <IconButton
+              sx={{
+                color: "white",
+                borderRadius: "50%",
+                barder: "1px solid white",
+               
+              }}
+            >
+              <ArrowBackIcon />
+            </IconButton>
+            <Typography>
+             PROJECT INSIGHTS
+            </Typography>
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 2 }}>
+            TCO FRED Framework
+          </Typography>
+
+          <Box
+            sx={{
+              gap: "10px",
+              alignItems: "center",
+              display:  "flex"
+            }}
+          >
+            <Typography
+              sx={{
+                display: { xs: "none", sm: "flex" },
+              }}
+            >
+              Welcome, Alisher Sailaubay
+            </Typography>{" "}
+            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          </Box>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, zIndex: 1 }}

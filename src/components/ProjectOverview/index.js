@@ -65,7 +65,7 @@ function ProjectOverview() {
         <Grid container item xs={12} sm={7}>
           {[0, 1, 2].map((data) => {
             return (
-              <Grid item xs={6} sm={3}>
+              <Grid item xs={6} lg={3}>
                 <div className="flex" style={{ height: "156px" }}>
                   <div>Fatalities</div>
                   <div style={{ fontSize: "28px", color: "#3B873E" }}>0</div>
