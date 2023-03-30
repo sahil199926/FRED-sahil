@@ -11,10 +11,10 @@ import {
 } from "react-router-dom";
 import Footer from "../components/Footer";
 import Home from "../Page/Home";
-import Topbar from "../components/common/Topbar";
-import FirstPage from "../components/FirstPage/FirstPage";
-import Secondpage from "../components/SecondPage";
-import ThirdPage from "../components/ThirdPage";
+import Topbar from "../components/common/CommonTopbar";
+import Mainpage from "../components/Mainpage";
+import ProjectOverview from "../components/ProjectOverview";
+import CostBaselines from "../components/Cost/CostBaselines";
 import FourthPage from "../components/FourthPage";
 import FifthPage from "../components/FifthPage";
 import SixthPage from "../components/SixthPage";
@@ -27,9 +27,11 @@ import Sidebar from "../components/Sidebar";
 function Navs() {
   const Hoc = () => {
     const location = useLocation();
-    console.log(location);
     return (
       <>
+       {(location.pathname === "/home" ||
+          location.pathname === "/mainpage") && <Topbar location={location.pathname} />}
+        
         <div
           style={{
             padding:
@@ -40,7 +42,8 @@ function Navs() {
         >
           <Outlet />
         </div>
-        <Footer />
+        {(location.pathname === "/home" ||
+          location.pathname === "/mainpage") && <Footer />}
       </>
     );
   };
@@ -56,19 +59,23 @@ function Navs() {
       <Routes>
         <Route element={<Hoc />}>
           <Route path="/home" exact element={<Home />} />
-          <Route path="/firstpage" exact element={<FirstPage />} />
+          <Route path="/mainpage" exact element={<Mainpage />} />
 
           <Route path="*" element={<Navigate to="/home" />} />
           <Route element={<SidebarHoc />}>
-            <Route path="/secondpage" exact element={<Secondpage />} />
-            <Route path='/thirdpage' exact element={<ThirdPage/>} />
-            <Route path='/fourthpage' exact element={<FourthPage/>} />
-            <Route path='/fifthpage' exact element={<FifthPage/>} />
-            <Route path='/sixthpage' exact element={<SixthPage/>} />
-            <Route path='/seventhpage' exact element={<SeventhPage/>} />
-            <Route path='/eighthpage' exact element={<EighthPage/>} />
-            <Route path='/ninthpage' exact element={<NinthPage/>} />
-            <Route path='/tenthpage' exact element={<TenthPage/>} />
+            <Route path="/overview" exact element={<ProjectOverview />} />
+            <Route
+              path="/cost/cost-baselines"
+              exact
+              element={<CostBaselines />}
+            />
+            <Route path="/fourthpage" exact element={<FourthPage />} />
+            <Route path="/fifthpage" exact element={<FifthPage />} />
+            <Route path="/sixthpage" exact element={<SixthPage />} />
+            <Route path="/seventhpage" exact element={<SeventhPage />} />
+            <Route path="/eighthpage" exact element={<EighthPage />} />
+            <Route path="/ninthpage" exact element={<NinthPage />} />
+            <Route path="/tenthpage" exact element={<TenthPage />} />
           </Route>
         </Route>
       </Routes>

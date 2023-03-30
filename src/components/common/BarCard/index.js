@@ -6,8 +6,7 @@ const BarCard = (props) => {
         heading,
         currency,
         value,
-      }=props;
-      console.log(props)
+      }=props
       return (
         <div style={{
           backgroundColor:"#fff", 

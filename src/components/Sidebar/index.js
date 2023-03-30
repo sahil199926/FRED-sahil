@@ -16,46 +16,121 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
+import { Avatar, Button } from "@mui/material";
+import { option } from "./SidebarOptions";
+import Footer from "../Footer";
+import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import CommonTopbar from "../common/CommonTopbar";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 const drawerWidth = 240;
 
 function Sidebar({ window, children }) {
-
+  const [options, setOptions] = React.useState(option);
+  const [itsAChild, setItsAChild] = React.useState(false);
+  const [currentPath, setCurrentPath] = React.useState("");
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const location = useLocation();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  const redirect = (option) => {
+    if (option.navigateTo) {
+      navigate(option.navigateTo);
+    } else if (option.path) {
+      navigate(option.path);
+    }
+    setMobileOpen(false);
+  };
+  useEffect(() => {
+    let paths = location.pathname.split("/");
+    if (paths.length === 3) {
+      let path = `/${paths[1]}`;
+      let option = options.find((option) => option.path === path);
+      if (option) {
+        let childNav = option.children;
+        if (childNav) {
+          setOptions(childNav);
+          setItsAChild(true);
+        }
+      }
+    } else if (paths.length === 2) {
+      setItsAChild(false);
+      setOptions(option);
+    }
+  }, [location]);
 
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding>
+      <List
+        sx={{
+          padding: "5px !important",
+        }}
+      >
+        {itsAChild && (
+          <ListItem
+            sx={{
+              cursor: "pointer",
+              backgroundColor:
+                location.pathname === "/overview" ? "#0066b229" : "white",
+            }}
+            onClick={() => redirect({ name: "Overview", path: "/overview" })}
+            key={option.name}
+            disablePadding
+          >
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <ArrowBackIosRoundedIcon />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText
+                sx={{
+                  fontStyle: "normal",
+                  fontWeight: "700",
+                  fontSize: "12px",
+                  lineHeight: "18px",
+                }}
+                primary={"Overview"}
+              />
+            </ListItemButton>
+          </ListItem>
+        )}
+        {options.map((option, index) => (
+          <ListItem
+            sx={{
+              cursor: "pointer",
+              backgroundColor:
+                location.pathname === option.path ? `#0066b229` : "white",
+
+              borderRadius: location.pathname === option.path ? "8px" : "0px",
+            }}
+            onClick={() => redirect(option)}
+            key={option.name}
+            disablePadding
+          >
+            <ListItemButton>
+              {option.icon && (
+                <ListItemIcon>
+                  <img src={option.icon} alt={option.name} />
+                </ListItemIcon>
+              )}
+              <ListItemText
+                sx={{
+                  fontStyle: "normal",
+                  fontWeight: "700",
+                  fontSize: "12px",
+                  lineHeight: "18px",
+                }}
+                primary={option.name}
+              />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
       <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
     </div>
   );
 
@@ -65,7 +140,8 @@ function Sidebar({ window, children }) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed">
+      <CommonTopbar handleDrawerToggle={handleDrawerToggle}/>
+      {/* <AppBar position="fixed">
         <Toolbar>
           <IconButton
             color="inherit"
@@ -76,15 +152,46 @@ function Sidebar({ window, children }) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" },alignItems:'center',fontWeight:'bold' }}>
+            <IconButton
+              sx={{
+                color: "white",
+                borderRadius: "50%",
+                barder: "1px solid white",
+               
+              }}
+            >
+              <ArrowBackIcon />
+            </IconButton>
+            <Typography>
+             PROJECT INSIGHTS
+            </Typography>
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 2 }}>
+            TCO FRED Framework
+          </Typography>
+
+          <Box
+            sx={{
+              gap: "10px",
+              alignItems: "center",
+              display:  "flex"
+            }}
+          >
+            <Typography
+              sx={{
+                display: { xs: "none", sm: "flex" },
+              }}
+            >
+              Welcome, Alisher Sailaubay
+            </Typography>{" "}
+            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          </Box>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
       <Box
         component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, zIndex: -1 }}
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, zIndex: 1 }}
         aria-label="mailbox folders"
       >
         <Drawer
@@ -96,7 +203,7 @@ function Sidebar({ window, children }) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            zIndex: -1,
+            zIndex: 5,
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
@@ -127,12 +234,13 @@ function Sidebar({ window, children }) {
         sx={{
           flexGrow: 1,
           p: 3,
-          width: { xs:"100%", sm: `calc(100% - ${drawerWidth}px)` },
-          padding:{xs:"0px",sm:"24px"}
+          width: { xs: "100%", sm: `calc(100% - ${drawerWidth}px)` },
+          padding: { xs: "0px", sm: "24px" },
         }}
       >
         <Toolbar />
         {children}
+        <Footer />
       </Box>
     </Box>
   );
