@@ -7,9 +7,10 @@ import {
   page1Data,
   page1Key,
 } from "../../assets/data/project";
-import graph from '../../assets/img/graph.png'
+import graph from "../../assets/img/graph.png";
 import BarCard from "../common/BarCard";
 import BarChart from "../common/BarChart";
+import { BarChartPage1 } from "../common/BarChartPage1";
 import Filters from "../common/Filters";
 import GraphCard from "../common/GraphCard";
 import PriseShowCard from "../common/PriseShowCard";
@@ -51,16 +52,18 @@ export default function FirstPage() {
             );
           })}
         </Grid>
-        <Grid container item xs={12} lg={5} spacing={1}>
-          <Grid  columnSpacing={1} container item lg={12}>
+        <Grid container item xs={12} lg={4} spacing={1}>
+          <Grid columnSpacing={1} container item lg={12}>
             {[0, 1].map((data) => {
               return (
                 <Grid
-                style={{
-                  display: "flex",
-                }}
-               
-                item xs={6} lg={6}>
+                  style={{
+                    display: "flex",
+                  }}
+                  item
+                  xs={6}
+                  lg={6}
+                >
                   <BarCard heading="budget" currency="$" value="200M" />
                 </Grid>
               );
@@ -89,16 +92,25 @@ export default function FirstPage() {
                   value="10K"
                   currency=""
                   subHeading=""
-                
                 />
               </Grid>
             );
           })}
         </Grid>
-        <Grid item xs={12} lg={3}>
-          <GraphCard   graph={graph}
-          heading='Man Hours'
-          />
+        <Grid item xs={12} lg={4}>
+          <div
+            style={{
+              backgroundColor: "white",
+              height: "310px",
+              padding: "8px",
+              borderRadius: "8px",
+            }}
+          >
+            <div style={{ textAlign: "center" }}>Man Hour</div>
+            <div style={{ height: "250px", padding: "8px" }}>
+              <BarChartPage1 heading="Man Hours" />
+            </div>
+          </div>
         </Grid>
       </Grid>
 
