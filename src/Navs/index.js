@@ -69,7 +69,13 @@ function Navs() {
               exact
               element={<CostBaselines />}
             />
-          
+            <Route path="/fourthpage" exact element={<FourthPage />} />
+            <Route path="/fifthpage" exact element={<FifthPage />} />
+            <Route path="/sixthpage" exact element={<SixthPage />} />
+            <Route path="/seventhpage" exact element={<SeventhPage />} />
+            <Route path="/eighthpage" exact element={<EighthPage />} />
+            <Route path="/ninthpage" exact element={<NinthPage />} />
+            <Route path="/tenthpage" exact element={<TenthPage />} />
           </Route>
         </Route>
       </Routes>
