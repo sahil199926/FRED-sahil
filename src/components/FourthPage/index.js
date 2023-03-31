@@ -7,6 +7,8 @@ import document from "../../assets/img/document.png"
 import './index.css'
 import CardImgae from "../common/CardImage";
 import HeadingWithPara from "../common/HeadingWithPara";
+import { HorizontalChart } from "../common/HorizontalChart";
+import { Table_Horizontal } from "../common/Table_Horizontal";
 
 const data = [
   {heading:"Total tag count",amount:1042487},
@@ -34,7 +36,24 @@ function FourthPage() {
       para="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "/>
       <Grid container>
-        {hoc(<CardImgae image={document} heading="Document" />)}
+        {hoc(
+          <div>
+            <div style={{textAlign:"center",color:"rgb(0,102,178",fontSize:"16px"}}><b>Documents</b></div>
+            <div style={{display:"flex"}}>
+              <div className="document-card">
+                <div style={{color:"rgb(0,102,178"}}>1.36M</div>
+                <div style={{fontSize:"10px"}}>Documents</div>
+              </div>
+              <div className="document-card">
+                <div style={{color:"rgb(0,102,178"}}>274.40K</div>
+                <div style={{fontSize:"10px"}}>Redlines Received</div>
+              </div>
+            </div>
+            <div style={{height:"180px"}}>
+              <HorizontalChart/>
+            </div>
+          </div>
+        )}
         {hoc(
           <div className="flex-4" style={{justifyContent:"space-between",}}>
               <div style={{color:"#0066B2",fontSize:"16px"}}><b>Data</b></div>
@@ -50,7 +69,38 @@ function FourthPage() {
               </div>
           </div>
         )}
-        {hoc(<CardImgae image={transition} heading="Transition" />)}
+        {hoc(
+          <div>
+            <div style={{textAlign:"center",color:"rgb(0,102,178",fontSize:"16px"}}><b>Documents</b></div>
+            <div>
+              <table>
+                <thead>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div style={{height:"180px"}}>
+              <Table_Horizontal/>
+            </div>
+          </div>
+        )}
         {hoc(
           <div className="flex-4" style={{}}>
               <div style={{color:"#0066B2",fontSize:"16px"}}><b>Close Out</b></div>

@@ -68,7 +68,8 @@ function Navs() {
               path="/cost/cost-baselines"
               exact
               element={<CostBaselines />}
-            />
+            /> 
+            
             <Route path="/fourthpage" exact element={<FourthPage />} />
             <Route path="/fifthpage" exact element={<FifthPage />} />
             <Route path="/sixthpage" exact element={<SixthPage />} />

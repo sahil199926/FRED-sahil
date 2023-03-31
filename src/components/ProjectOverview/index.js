@@ -14,6 +14,7 @@ import {
   page2MiddleKey,
   PROJECT,
 } from "../../assets/data/project";
+import { BarChartPage1 } from "../common/BarChartPage1";
 
 function ProjectOverview() {
   return (
@@ -65,8 +66,8 @@ function ProjectOverview() {
         <Grid container item xs={12} sm={7}>
           {[0, 1, 2].map((data) => {
             return (
-              <Grid item xs={6} lg={3}>
-                <div className="flex" style={{ height: "156px" }}>
+              <Grid item xs={6} sm={3}>
+                <div className="flex" style={{ height: "136px" }}>
                   <div>Fatalities</div>
                   <div style={{ fontSize: "28px", color: "#3B873E" }}>0</div>
                   <div>One TCO 2022 Target</div>
@@ -82,7 +83,7 @@ function ProjectOverview() {
                 <Grid
                   className="flex"
                   style={{
-                    height: "75px",
+                    height: "65px",
                     display: "flex",
                     flexDirection: "column",
                   }}
@@ -97,24 +98,25 @@ function ProjectOverview() {
             container
             item
             lg={12}
-            style={{ backgroundColor: "white", margin: "5px" }}
+            style={{ backgroundColor: "white", margin: "0px 5px 5px 5px" }}
           >
             <Grid sx={{ textAlign: "center" }} xs={12} lg={12}>
-              Header
+              Man hours
             </Grid>
-            <Grid item xs={12} lg={7}>
-              <Box sx={{ padding: "8px" }}>
-                <GraphCard
-                  graph={graph}
-                  // heading='Man Hours'
-                  height="120"
-                />
-              </Box>
+            <Grid item xs={12} lg={8}>
+              <div
+                style={{
+                }}
+              >
+                <div style={{  }}>
+                  <BarChartPage1 heading="Man Hours" />
+                </div>
+              </div>
             </Grid>
             <Grid
               item
               xs={12}
-              lg={5}
+              lg={4}
               sx={{
                 display: "flex",
                 justifyContent: "center",
