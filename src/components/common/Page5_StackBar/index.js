@@ -27,7 +27,7 @@ ChartJS.register(
   BarController
 );
 
-const labels = ["Apr 2022", "Jul 2022", "Oct 2022",];
+const labels = ["14 Jun 2021", "28 Jun 2021", "12 Jul 2021","26 Jul 2021","9 JAug 2021"];
 
 // const values = [
 //   1, 1, 2, 2, 2.3, 2.5, 2.7, 2.8, 2.9, 3, 3, 4, 4.4, 4.5, 4.6, 4.8, 4.8, 2, 2.1,
@@ -38,62 +38,82 @@ const labels = ["Apr 2022", "Jul 2022", "Oct 2022",];
 
 const values = 
   {
-    actual:[172,197,49,211],
-    planned:[7,54,69,176,150,132,176,128,90,78,132,102],
-    forecast:[0,0,0,0,56,132,170,111,80,60,100,80]
+    submitted:[41,56,51,38,69],
+    resolved:[86,61,46,87,89],
+    closed:[81,57,38,29,56,],
+    overlap:[81,57,38,29,56,],
+    unresolved:[40,43,45,42,40],
+    constrained:[60,61,59,57,65],
+    all:[200,201,205,201,208]
   }
 
 
 const data = {
-  labels: values.planned.map((e, i) => labels[i % 3]),
+  labels,
   datasets: [
     {
       type: "bar",
-      barThickness: 4,
-      label: "Planned Man Hour",
-      backgroundColor: "#67ae5d",
-      data: values.actual,
-      borderColor: "white",
-    },
-    {
-      type: "bar",
-      barThickness: 4,
-      label: "Actual Man Hour",
+      label: "Submitted",
       backgroundColor: "#d56643",
-      data: values.planned,//slice(0,25).map((e) => e + Math.round(Math.random() * 1)),
-      borderColor: "white",
-    },
-    {
-      type: "bar",
-      pointRadius: 0,
-      label: "Forecast Progress",
-      backgroundColor: "#5c50aa",
-      data: values.forecast,
-      borderColor: "#5c50aa",
-    },
-    {
-      type: "line",
-      pointRadius: 0,
-      label: "Actual Progress",
-      backgroundColor: "#67ae5d",
-      data: values.actual,
-      borderColor: "#67ae5d",
-    },
-    {
-      type: "line",
-      pointRadius: 0,
-      label: "Forecast Progress",
-      backgroundColor: "#5c50aa",
-      data: values.actual.concat(values.forecast.slice(4)),
-      borderColor: "#5c50aa",
-    },
-    {
-      type: "line",
-      pointRadius: 0,
-      label: "Planned Progress",
-      backgroundColor: "#d56643",
-      data: values.planned,
+      data: values.resolved,//slice(0,25).map((e) => e + Math.round(Math.random() * 1)),
       borderColor: "#d56643",
+      stack:"Stack 0",
+      // order:1
+    },
+    {
+      type: "bar",
+      // barThickness: 8,
+      label: "Resolve",
+      backgroundColor: "rgba(236,235,232,.4)",
+      data: values.overlap,
+      borderColor: "white",
+      stack:"Stack 1",
+      // order:2,
+      yAxisID:"percentage",
+      categoryPercentage:2
+    },
+    {
+      type: "bar",
+      label: "Closed",
+      backgroundColor: "#99a966",
+      data: values.closed,
+      borderColor: "#99a966",
+      stack:"Stack 1",
+      // order:1
+    },
+    {
+      type: "bar",
+      // barThickness: 8,
+      label: "Unresolved",
+      backgroundColor: "#67ae5d",
+      data: values.submitted,
+      borderColor: "white",
+      stack:"Stack 2",
+      // order:1
+    },
+    {
+      type: "line",
+      label: "Unresolved",
+      backgroundColor: "#dab051",
+      data: values.unresolved,
+      borderColor: "#dab051",
+    },
+    {
+      type: "line",
+      pointRadius: 0,
+      label: "Constrained",
+      backgroundColor: "#202c64",
+      data: values.constrained,
+      borderColor: "#202c64",
+    },
+    {
+      type: "line",
+      pointRadius: 0,
+      label: "All open",
+      backgroundColor: "#693354",
+      data: values.all,
+      borderColor: "#693354",
+      order:2
     },
   ],
 };
@@ -114,11 +134,9 @@ const options = {
         },
       },
     },
-    tooltip: { enabled: false },
+    tooltip: { enabled: true },
     datalabels: {
       display: true,
-      textAlign:"right",
-      color:"white"
     },
   },
   scales: {
@@ -126,9 +144,8 @@ const options = {
       grid: { display: false },
       // barThickness: 1,
       ticks: {
-        autoSkip: true,
+        autoSkip: false,
         maxRotation: 0,
-        maxTicksLimit: 3,
         font:{
           size:10
         }
@@ -138,36 +155,31 @@ const options = {
       grid: { display: false },
       // barThickness: 1,
       ticks: {
-        autoSkip: true,
+        autoSkip: false,
         min: 0,
-        // max: 50,
-        // stepSize: 5,
+        stepSize: 100,
         maxRotation: 0,
         font: {
           size: 10,
         },
-        callback: function (v) {
-          return this.getLabelForValue(v) + "K";
-        },
       },
     },
-    y1: {
-      grid: { display: false },
-      position: "right",
+    percentage:{
+      position:"right",
       ticks: {
         autoSkip: true,
         min: 0,
+        // stepSize: 100,
         maxRotation: 0,
-        font: { weight: "bold" },
-        callback: function (v, index) {
-          return (2*v) + "M";
+        font: {
+          size: 10,
         },
-      },
-    },
+      }
+    }
   },
 };
 
-export function Table_Horizontal() {
+export function Page5_StackBar() {
   return (
     <Bar type="bar" options={options} data={data} />
   );

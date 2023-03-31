@@ -1,4 +1,3 @@
-import { display } from '@mui/system';
 import React from 'react'
 
 const BarCard = (props) => {

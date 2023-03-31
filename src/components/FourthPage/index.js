@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import React from "react";
 // import { Bar } from "react-chartjs-2";
 import transition from "../../assets/img/transition.png"
@@ -16,6 +16,24 @@ const data = [
   {heading:"% Complete",amount:95.96},
 ]
 
+const table = [
+  {
+    hd:"Total Scope",
+    bd:"2468706"
+  },{
+    hd:"Already Closed",
+    bd:"23650283"
+  },{
+    hd:"Still to go",
+    bd:"1058671"
+  },{
+    hd:"Complete (%)",
+    bd:"95.82"
+  },{
+    hd:"Forecast 6 Month",
+    bd:"984880"
+  },
+]
 
 const hoc = (data) => {
   return (
@@ -70,33 +88,28 @@ function FourthPage() {
           </div>
         )}
         {hoc(
-          <div>
+          <div style={{width:"100%"}}>
             <div style={{textAlign:"center",color:"rgb(0,102,178",fontSize:"16px"}}><b>Documents</b></div>
-            <div>
+            <Box sx={{border:"1px solid gray",fontSize:{xs:"10px",lg:"12px"},width:"100%"}}>
               <table>
                 <thead>
                   <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
+                    {
+                      table.map((data)=><td>{data.hd}</td>)
+                    }
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                  <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
+                    {
+                      table.map((data)=><td><b>{data.bd.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")}</b></td>)
+                    }
                   </tr>
                 </tbody>
               </table>
-            </div>
-            <div style={{height:"180px"}}>
+            </Box>
+            <div style={{textAlign:"center",backgroundColor:"rgb(66, 98, 141)",color:"white"}}>Assest Data Completeness</div>
+            <div style={{height:"140px", border:"1px solid gray"}}>
               <Table_Horizontal/>
             </div>
           </div>
